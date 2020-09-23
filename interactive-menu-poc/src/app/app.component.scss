@@ -1,0 +1,11 @@
+.package {
+    @apply h-full border border-gray-600;
+
+    .header {
+        @apply w-full p-1 text-xl font-semibold text-center;
+    }
+}
+
+.package-container {
+    @apply grid min-h-screen; 
+}
