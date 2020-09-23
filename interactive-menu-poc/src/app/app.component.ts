@@ -5,22 +5,6 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  animations: [
-    trigger('expandContract', [
-      state('expand', style({
-        width: '100%'
-      })), 
-      state('contract', style({
-        width: 'auto'
-      })),
-      transition('expand => contract', [
-        animate('1s')
-      ]),
-      transition('contract => expand', [
-        animate('1s')
-      ])
-    ])
-  ],
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {

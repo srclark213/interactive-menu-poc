@@ -6,6 +6,7 @@
     }
 
     transition: flex 0.3s ease-out;
+    -webkit-transition: 0.3s flex ease-out; 
     flex: 1;
 
     

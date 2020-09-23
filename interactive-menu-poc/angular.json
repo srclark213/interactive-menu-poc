@@ -127,8 +127,13 @@
               "devServerTarget": "interactive-menu-poc:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "interactive-menu-poc"
 }
