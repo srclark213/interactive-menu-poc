@@ -5,11 +5,11 @@
         @apply w-full p-1 text-xl font-semibold text-center;
     }
 
-    -webkit-transition: flex 0.3s ease-out;
-    -moz-transition: flex 0.3s ease-out;
-    -o-transition: flex 0.3s ease-out;
-    transition: flex 0.3s ease-out;
-    
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+
     flex: 1;
 
     
