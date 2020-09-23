@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ProductComponent } from './product/product.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -10,7 +13,9 @@ import { ProductComponent } from './product/product.component';
     ProductComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    DragDropModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

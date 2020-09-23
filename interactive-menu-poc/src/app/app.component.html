@@ -1,37 +1,20 @@
-<div class="lg:container lg:mx-auto">
-  <div class="package-container lg:grid-cols-4 lg:gap-3 sm:grid-cols-2 sm:gap-1 grid-cols-1 gap-0">
-    <div class="package">
-      <div class="header bg-blue-200">Package One</div>
+<div class="lg:mx-auto">
+  <div 
+    class="package-container"
+    cdkDropListGroup>
+    <ng-container *ngFor="let package of packages">
+      <div 
+      [ngClass]="expandedPackage !== null && expandedPackage !== package.id ? 'collapsed' : ''" 
+        class="package"
+        cdkDropList
+        [cdkDropListData]="package.products" 
+        (cdkDropListDropped)="drop($event)">
 
-      <app-product [title]="'New VSC'"></app-product>
-      <app-product [title]="'GAP'"></app-product>
-      <app-product [title]="'Select 1'"></app-product>
-      <app-product [title]="'Key Replacement'"></app-product>
-      <app-product [title]="'Tire & Wheel'"></app-product>
-      <app-product [title]="'Maintenance'"></app-product>
-    </div>
-    <div class="package">
-      <div class="header bg-red-200">Package Two</div>
+        <div class="header bg-blue-200" (click)="expand(package)" cdkDragDisabled>{{package.title}}</div>
 
-      <app-product [title]="'New VSC'"></app-product>
-      <app-product [title]="'GAP'"></app-product>
-      <app-product [title]="'Select 1'"></app-product>
-      <app-product [title]="'Key Replacement'"></app-product>
-      <app-product [title]="'Tire & Wheel'"></app-product>
-    </div>
-    <div class="package">
-      <div class="header bg-green-200">Package Three</div>
-
-      <app-product [title]="'New VSC'"></app-product>
-      <app-product [title]="'GAP'"></app-product>
-      <app-product [title]="'Select 1'"></app-product>
-      <app-product [title]="'Key Replacement'"></app-product>
-    </div>
-    <div class="package">
-      <div class="header bg-orange-200">Package Four</div>
-
-      <app-product [title]="'New VSC'"></app-product>
-      <app-product [title]="'GAP'"></app-product>
-    </div>
+        <div class="product" *ngFor="let product of package.products" cdkDrag [cdkDragData]="product">
+          <app-product [title]="product"></app-product>
+        </div>
+      </div>
+    </ng-container>
   </div>
-</div>
