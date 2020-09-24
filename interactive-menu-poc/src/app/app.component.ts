@@ -13,6 +13,7 @@ export class AppComponent {
       id: 1,
       title: 'Package One',
       class: 'bg-blue-200',
+      price: 420,
       products: [
         'New VSC',
         'GAP',
@@ -26,6 +27,7 @@ export class AppComponent {
       id: 2,
       title: 'Package Two',
       class: 'bg-red-200',
+      price: 400,
       products: [
         'New VSC',
         'GAP',
@@ -38,6 +40,7 @@ export class AppComponent {
       id: 3,
       title: 'Package Three',
       class: 'bg-green-200',
+      price: 395,
       products: [
         'New VSC',
         'GAP',
@@ -49,6 +52,7 @@ export class AppComponent {
       id: 4,
       title: 'Package Four',
       class: 'bg-orange-200',
+      price: 360,
       products: [
         'New VSC',
         'GAP',
@@ -72,4 +76,16 @@ export class AppComponent {
   expand(pkg: any) {
     this.expandedPackage = pkg.id === this.expandedPackage ? null : pkg.id;
   }
+
+  collapseAll() {
+    this.expandedPackage = this.expandedPackage !== -1 ? -1 : null;
+  }
+
+  expanded(pkg: any) {
+    return this.expandedPackage === null || this.expandedPackage === pkg.id;
+  }
+
+  collapsed(pkg) {
+    return !this.expanded(pkg);
+  } 
 }

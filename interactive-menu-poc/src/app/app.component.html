@@ -1,16 +1,24 @@
 <div class="lg:mx-auto">
   <div class="package-container" cdkDropListGroup>
     <ng-container *ngFor="let package of packages">
-      <div [ngClass]="this.expandedPackage !== null && this.expandedPackage !== package.id ? 'collapsed' : ''"
-        class="package" cdkDropList [cdkDropListData]="package.products" (cdkDropListDropped)="drop($event)">
+      <div [ngClass]="collapsed(package) ? 'collapsed' : ''" class="package" cdkDropList
+        [cdkDropListData]="package.products" (cdkDropListDropped)="drop($event)">
 
-        <div class="header" [ngClass]="package.class" (click)="expand(package)" cdkDragDisabled><span class="header-text">{{package.title}}</span></div>
+        <div class="header" [ngClass]="package.class" (click)="expand(package)" cdkDragDisabled>
+          <span class="header-text">{{package.title}}</span>
+          <div *ngIf="expanded(package)" class="pricing-pill">{{package.price|currency}}</div>
+        </div>
 
-        <ng-container *ngIf="this.expandedPackage === null || this.expandedPackage === package.id">
+        <ng-container *ngIf="expanded(package)">
           <div class="product" *ngFor="let product of package.products" cdkDrag [cdkDragData]="product">
             <app-product [title]="product"></app-product>
           </div>
         </ng-container>
       </div>
     </ng-container>
+
+    <div class="floating-actions">
+      <button class="action-button bg-blue-500 hover:bg-blue-700 text-white font-bold">Another Button</button>
+      <button class="action-button bg-blue-500 hover:bg-blue-700 text-white font-bold" (click)="collapseAll()">{{expandedPackage === -1 ? 'Expand All' : 'Collapse All'}}</button>
+    </div>
   </div>
