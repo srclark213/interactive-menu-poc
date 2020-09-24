@@ -1,20 +1,16 @@
 <div class="lg:mx-auto">
-  <div 
-    class="package-container"
-    cdkDropListGroup>
+  <div class="package-container" cdkDropListGroup>
     <ng-container *ngFor="let package of packages">
-      <div 
-      [ngClass]="expandedPackage !== null && expandedPackage !== package.id ? 'collapsed' : ''" 
-        class="package"
-        cdkDropList
-        [cdkDropListData]="package.products" 
-        (cdkDropListDropped)="drop($event)">
+      <div [ngClass]="this.expandedPackage !== null && this.expandedPackage !== package.id ? 'collapsed' : ''"
+        class="package" cdkDropList [cdkDropListData]="package.products" (cdkDropListDropped)="drop($event)">
 
-        <div class="header bg-blue-200" (click)="expand(package)" cdkDragDisabled>{{package.title}}</div>
+        <div class="header bg-blue-200" (click)="expand(package)" cdkDragDisabled><span class="header-text">{{package.title}}</span></div>
 
-        <div class="product" *ngFor="let product of package.products" cdkDrag [cdkDragData]="product">
-          <app-product [title]="product"></app-product>
-        </div>
+        <ng-container *ngIf="this.expandedPackage === null || this.expandedPackage === package.id">
+          <div class="product" *ngFor="let product of package.products" cdkDrag [cdkDragData]="product">
+            <app-product [title]="product"></app-product>
+          </div>
+        </ng-container>
       </div>
     </ng-container>
   </div>
