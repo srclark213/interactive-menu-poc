@@ -4,7 +4,7 @@
       <div [ngClass]="this.expandedPackage !== null && this.expandedPackage !== package.id ? 'collapsed' : ''"
         class="package" cdkDropList [cdkDropListData]="package.products" (cdkDropListDropped)="drop($event)">
 
-        <div class="header bg-blue-200" (click)="expand(package)" cdkDragDisabled><span class="header-text">{{package.title}}</span></div>
+        <div class="header" [ngClass]="package.class" (click)="expand(package)" cdkDragDisabled><span class="header-text">{{package.title}}</span></div>
 
         <ng-container *ngIf="this.expandedPackage === null || this.expandedPackage === package.id">
           <div class="product" *ngFor="let product of package.products" cdkDrag [cdkDragData]="product">

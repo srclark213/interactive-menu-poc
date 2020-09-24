@@ -12,6 +12,7 @@ export class AppComponent {
     {
       id: 1,
       title: 'Package One',
+      class: 'bg-blue-200',
       products: [
         'New VSC',
         'GAP',
@@ -24,6 +25,7 @@ export class AppComponent {
     {
       id: 2,
       title: 'Package Two',
+      class: 'bg-red-200',
       products: [
         'New VSC',
         'GAP',
@@ -35,6 +37,7 @@ export class AppComponent {
     {
       id: 3,
       title: 'Package Three',
+      class: 'bg-green-200',
       products: [
         'New VSC',
         'GAP',
@@ -45,6 +48,7 @@ export class AppComponent {
     {
       id: 4,
       title: 'Package Four',
+      class: 'bg-orange-200',
       products: [
         'New VSC',
         'GAP',
